@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Days Without New L2</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #1a5f7a;
+            font-family: Arial, sans-serif;
+        }
+        .sign {
+            background-color: #66ff66;
+            border: 10px solid #000000;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        }
+        .days {
+            font-size: 120px;
+            font-weight: bold;
+            color: #000000;
+            margin-right: 20px;
+        }
+        .text {
+            font-size: 48px;
+            font-weight: bold;
+            color: #000000;
+            line-height: 1.2;
+        }
+    </style>
+</head>
+<body>
+    <div class="sign">
+        <div class="days" id="dayCount">0</div>
+        <div class="text">DAYS<br>WITHOUT<br>A NEW L2</div>
+    </div>
+
+    <script>
+        function updateDays() {
+            const startDate = new Date('2024-08-13'); // Set your static start date here
+            const today = new Date();
+            const differenceInTime = today.getTime() - startDate.getTime();
+            const differenceInDays = Math.floor(differenceInTime / (1000 * 3600 * 24));
+            document.getElementById('dayCount').textContent = differenceInDays;
+        }
+
+        updateDays();
+        setInterval(updateDays, 86400000); // Update every 24 hours
+    </script>
+</body>
+</html>
